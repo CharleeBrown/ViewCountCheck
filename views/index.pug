@@ -15,7 +15,7 @@ block content
             input(type="text" id="duration")
     div(class="row")
       div(class="col-sm-2")
-        button(type="submit" onclick="getViewCount()")|Calcualte Views
+        button(type="submit" onclick="getViewCount()" id="mainBtn")|Calcualte Views
     br
     div(class="row")
       div(class="col-sm-2")
@@ -32,12 +32,26 @@ block content
         textarea(cols="10", rows="1" id="goaltime" resize="none" )
         label|for 4000 Watch Hours
   script.
+    var duration = document.getElementById("duration");
+    duration.maxLength = 4;
+    duration.addEventListener("keypress", function(evt)
+      {
+        if (evt.which < 48 || evt.which > 57 )
+        { evt.preventDefault();}
+        }
+  // Found here : https://stackoverflow.com/questions/19966417/prevent-typing-non-numeric-in-input-type-number
+  // Learned : how to handle the event and write better event listeners.
+          )
+    
     function getViewCount() {
-    let duration = document.getElementById("duration");
+    
     let minuteVal = document.getElementById("oneMin");
     let hourVal = document.getElementById("oneHour");
     let goalTime = document.getElementById("goaltime");
-
+    if(duration.value=="" || parseInt(duration)==NaN){
+      alert("Enter a Avg. View Duration");
+      duration.focus();
+    }else{
     const viewNbr = 1;
     let minTime = 60/duration.value;
     minuteVal.value = minTime.toFixed(2) + " views"
@@ -47,4 +61,5 @@ block content
     let nf = Intl.NumberFormat();
 
     goalTime.value = nf.format(goal) + " views";
+    }
     }
