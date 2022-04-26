@@ -1,0 +1,50 @@
+extends layout
+
+block content
+  div(class="jumbotron")
+    h4(style="text-align:center;")|Watch Time Estimator
+  div(class="container")
+    div(class="row" id="rowMain")
+      div(class="col-sm-2")
+        label|1 View
+            br
+            input(type="text" value=1 disabled=true id="oneView")
+      div(class="col-sm-2")
+        label|Avg. View Duration (in seconds)
+            br
+            input(type="text" id="duration")
+    div(class="row")
+      div(class="col-sm-2")
+        button(type="submit" onclick="getViewCount()")|Calcualte Views
+    br
+    div(class="row")
+      div(class="col-sm-2")
+        h1|
+    div(class="row" id="rowMain")
+      div(class="col-sm-2")
+        input(type="text" id="oneMin")
+        label|for one minute of watch time
+      div(class="col-sm-2")
+        input(type="text" id="oneHour")
+        label|for one hour of watch time
+              br
+      div(class="col-sm-2")
+        textarea(cols="10", rows="1" id="goaltime" resize="none" )
+        label|for 4000 Watch Hours
+  script.
+    function getViewCount() {
+    let duration = document.getElementById("duration");
+    let minuteVal = document.getElementById("oneMin");
+    let hourVal = document.getElementById("oneHour");
+    let goalTime = document.getElementById("goaltime");
+
+    const viewNbr = 1;
+    let minTime = 60/duration.value;
+    minuteVal.value = minTime.toFixed(2) + " views"
+    let hours = parseInt(minTime)*60;
+    hourVal.value = hours + " views";
+    let goal = hours * 4000;
+    let nf = Intl.NumberFormat();
+
+    goalTime.value = nf.format(goal) + " views";
+    }

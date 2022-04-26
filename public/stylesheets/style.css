@@ -1,0 +1,31 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+input{
+  display:inline-block;
+  width: 120px;
+  text-align: center;
+  margin:0 auto;
+}
+
+.col-sm-2{
+  text-align:center;
+  margin:0 auto;
+}
+
+#goaltime{
+  resize: none !important;
+  text-align:center;
+}
+
+.jumbotron{
+  background-color:transparent !important;
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+}

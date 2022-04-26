@@ -1,0 +1,15 @@
+
+# Node/npm
+node_modules
+
+# Editors
+*.sublime-workspace
+*.sublime-project # unless most use Sublime
+.vscode
+*.code-workspace
+.idea
+*.swp
+*~
+
+# Misc
+.DS_Store
