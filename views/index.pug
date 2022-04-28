@@ -34,15 +34,10 @@ block content
   script.
     var duration = document.getElementById("duration");
     duration.maxLength = 4;
-    duration.addEventListener("keypress", function(evt)
-      {
+    duration.addEventListener("keypress", function(evt){
         if (evt.which < 48 || evt.which > 57 )
         { evt.preventDefault();}
-        }
-  // Found here : https://stackoverflow.com/questions/19966417/prevent-typing-non-numeric-in-input-type-number
-  // Learned : how to handle the event and write better event listeners.
-          )
-    
+    });
     function getViewCount() {
     
     let minuteVal = document.getElementById("oneMin");
