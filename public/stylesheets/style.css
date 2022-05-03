@@ -14,6 +14,8 @@ input{
   width: 120px;
   text-align: center;
   margin:0 auto;
+  border:black solid 3px;
+  border-radius:10px;  
 }
 
 .col-sm-2{
@@ -29,6 +31,8 @@ input{
 .jumbotron{
   background-color:white !important;
   font-family:Verdana, Arial, Helvetica, sans-serif;
+  border:gray solid 3px;
+  border-radius:10px;  
 }
 
 #mainBtn{
@@ -38,3 +42,4 @@ input{
   border:none;
   color:#008CBA;
 }
+
