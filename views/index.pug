@@ -34,27 +34,29 @@ block content
   script.
     var duration = document.getElementById("duration");
     duration.maxLength = 4;
-    duration.addEventListener("keypress", function(evt){
-        if (evt.which < 48 || evt.which > 57 )
-        { evt.preventDefault();}
+    duration.addEventListener("keypress", function (evt) {
+      if (evt.which < 48 || evt.which > 57) {
+        evt.preventDefault();
+      }
     });
-    function getViewCount() {
-    
-    let minuteVal = document.getElementById("oneMin");
-    let hourVal = document.getElementById("oneHour");
-    let goalTime = document.getElementById("goaltime");
-    if(duration.value=="" || parseInt(duration)==NaN){
-      alert("Enter a Avg. View Duration");
-      duration.focus();
-    }else{
-    const viewNbr = 1;
-    let minTime = 60/duration.value;
-    minuteVal.value = minTime.toFixed(2) + " views"
-    let hours = parseInt(minTime)*60;
-    hourVal.value = hours + " views";
-    let goal = hours * 4000;
-    let nf = Intl.NumberFormat();
 
-    goalTime.value = nf.format(goal) + " views";
-    }
+    function getViewCount() {
+
+      let minuteVal = document.getElementById("oneMin");
+      let hourVal = document.getElementById("oneHour");
+      let goalTime = document.getElementById("goaltime");
+      if (duration.value == "" || parseInt(duration) == NaN) {
+        alert("Enter a Avg. View Duration");
+        duration.focus();
+      } else {
+        const viewNbr = 1;
+        let minTime = 60 / duration.value;
+        minuteVal.value = minTime.toFixed(2) + " views"
+        let hours = parseInt(minTime) * 60;
+        hourVal.value = hours + " views";
+        let goal = hours * 4000;
+        let nf = Intl.NumberFormat();
+
+        goalTime.value = nf.format(goal) + " views";
+      }
     }
